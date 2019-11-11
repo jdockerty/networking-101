@@ -15,4 +15,29 @@ The TCP/IP model takes multiple layers of the OSI model and puts them into a sin
 * Application (7), Presentation (6), and Session (5) layers  --> Application
 * Data-Link and Physical --> Network Access
 
-Essentially, they are the same thing though; you'll more commonly see the TCP/IP model, but people will refer to things using the OSI layers, so this is something to keep in mind.
+Essentially, they are the same thing though; you'll more commonly see the TCP/IP model, but people will refer to things using the OSI layers, so this is something to keep in mind, although mentioning a term removes the ambiguity, e.g. *'a transport layer protocol'*, you know where you are, in a logical sense, without thinking of different layer numbers for the models.
+
+A good thing to remember too, is what type of data is being transmitted or constructed at a particular OSI reference layer:
+* Layer 4 - Segments
+* Layer 3 - Packets
+* Layer 2 - Frames
+* Layer 1 - Bits on the wire
+
+From these reference models we can delve further into fundamental protocols and understand how they function, given their respective layers.
+
+### Address Resolution Protocol (ARP) - Layer 2 ###
+
+You will see ARP occur quite frequently within a LAN when a machine does not know the corresponding MAC address for a particular IP address. Since we are referring to a LAN, this means we're dealing with MAC addresses, a physical address which is burnt into the device and unqiuely identifies it.
+This is considered layer 2 because the protocol itself does not concern itself with IP addresses, a logical addressing mechanism, for traversing a network, only the physical (MAC) address is used for construction of a frame. Owing to this, the traffic at layer 2 will not *traditionally* traverse the internet as it is not internet routable and it will only stay within your local LAN segment. 
+*(The caveat is concerning the use of VPNs, as they can extend a L2 segment, although you can research that further if you find it interesting)*
+
+### Internet Protocol (IP) - Layer 3 ###
+
+IP is quite familiar to most people, it provides a logical addressing structure for devices to communicate with each other. An IP address will look something like 10.1.1.5, this is a single address. A range of IP addresses are referred to as a *prefix* and will be shown in the form of something like 10.1.1.0/24, the /24 denotes a subnet mask of 255.255.255.0, this indicates where the network address is (the identifier for the network starting) and where the broadcast address is, this is the last address within a particular range of addresses (pinging this would mean you're pinging each device in that particular range).
+
+This brings us onto the concept of public and private address ranges:
+The private ip address ranges are:
+* 10.0.0.0 to 10.255.255.255 (this would be 10.0.0.0/8)
+* 172.16.0.0 to 172.31.255.255 (172.16.0.
+Public ranges are internet routable, you can buy a block of public addresses for your own business use or use services like AWS to utilise a cloud providers pool for your applications.
+
