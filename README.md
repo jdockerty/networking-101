@@ -6,14 +6,15 @@ These are just conceptual models for referencing when a protocol is being design
 
 ### OSI (Open Systems Interconnect) Model ###
 ![OSI Model](https://www.cloudflare.com/img/learning/ddos/what-is-a-ddos-attack/osi-model-7-layers.svg)
-
+> Image from Cloudflare and for further reading.
+> https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/
 
 ### TCP/IP (Transmission Control Protocol over Internet Protocol) Model ###
 ![TCP/IP Model](https://www.studytonight.com/computer-networks/images/Figure35-1.png)
 
 The TCP/IP model takes multiple layers of the OSI model and puts them into a single layer, simplifying it. 
 * Application (7), Presentation (6), and Session (5) layers  --> Application
-* Data-Link and Physical --> Network Access
+* Data-Link (2) and Physical (1) --> Network Access
 
 Essentially, they are the same thing though; you'll more commonly see the TCP/IP model, but people will refer to things using the OSI layers, so this is something to keep in mind, although mentioning a term removes the ambiguity, e.g. *'a transport layer protocol'*, you know where you are, in a logical sense, without thinking of different layer numbers for the models.
 
@@ -30,6 +31,8 @@ From these reference models we can delve further into fundamental protocols and 
 You will see ARP occur quite frequently within a LAN when a machine does not know the corresponding MAC address for a particular IP address. Since we are referring to a LAN, this means we're dealing with MAC addresses, a physical address which is burnt into the device and unqiuely identifies it.
 This is considered layer 2 because the protocol itself does not concern itself with IP addresses, a logical addressing mechanism, for traversing a network, only the physical (MAC) address is used for construction of a frame. Owing to this, the traffic at layer 2 will not *traditionally* traverse the internet as it is not internet routable and it will only stay within your local LAN segment. 
 *(The caveat is concerning the use of VPNs, as they can extend a L2 segment, although you can research that further if you find it interesting)*
+
+> Further reading - https://learningnetwork.cisco.com/docs/DOC-23702
 
 ### Internet Protocol (IP) - Layer 3 ###
 
@@ -49,6 +52,9 @@ Private addresses are used as a logical addressing scheme for a private/local ne
 
 Public ranges are internet routable, you can buy a block of public addresses for your own business use or use services like AWS to utilise a cloud providers pool for your applications. A public address ranges from anything in the range, excluding those above, of 1.0.0.0 to 223.255.255.255. 224.X.X.X and above are for multicast addresses and are out of scope for basic understanding of IP.
 
+> RFC 1918 for private addressing scheme - https://tools.ietf.org/html/rfc1918
+> General IP address and subnetting usage - https://support.microsoft.com/en-gb/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics
+
 ### Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) - Layer 4 ###
 
 TCP is a connection-oriented transport mechanism used to guarantee segment delivery across a network. TCP is a very feature-rich protocol, providing features such as:
@@ -57,4 +63,23 @@ TCP is a connection-oriented transport mechanism used to guarantee segment deliv
 * In-order delivery
 * Flow control through windowing
 
-*What does connection-oriented mean?* This is in relation to the 3-way handshake which establishes a TCP connection before any data is sent, this must succeed before any data is exchanged.
+#### What does connection-oriented mean? #### 
+This is in relation to the 3-way handshake which establishes a TCP connection before any data is sent, this must succeed before any data is exchanged.
+
+![TCP 3-way handshake](https://www.cloudflare.com/img/learning/cdn/tls-ssl/tcp-handshake-diagram.png)
+
+Once the handshake has been completed, an end to end connection exists between the 2 hosts. Ensuring that a bidirectional stream of data can be sent.
+
+When the data that was needing to be sent has succeeded, the client may send a packet with the FIN (Finish) bit set meaning that the connection will close.
+
+#### Multiplexing through port numbers ####
+
+A port number is a concept used to allow multiplexing, simply put, this allows a device to differentiate different connection streams to a different services that is coming from the same IP address. Port numbers provide a way to uniquely identify a particular stream and ensure it receives the correct service, e.g. a destination of port 80 to a particular IP would mean it was a webserver, connecting with HTTP to receive some sort of web data.
+
+*You don't need to memorise port numbers since you can just Google them if you're unsure, although you eventually just pick up the standard ones you hear about a lot and commit those to memory naturally. HTTP = 80, SSH = 22, HTTPS = 443 etc.*
+
+
+
+>Further reading on TCP - https://tools.ietf.org/html/rfc793`
+
+>Further reading on UDP - https://tools.ietf.org/html/rfc768`
