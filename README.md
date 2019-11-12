@@ -97,3 +97,4 @@ Segments are held in a buffer until they all arrive, at this point they are proc
 
 #### Flow Control ####
 
+This is provided through a windowing mechanism in TCP. The window determines the amount of data that a device is willing to receive before an acknowledgement is needing to be sent. This window size is dynamic, meaning that it can change throughout the duration of the communication.
