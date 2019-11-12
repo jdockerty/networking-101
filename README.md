@@ -50,3 +50,11 @@ Private addresses are used as a logical addressing scheme for a private/local ne
 Public ranges are internet routable, you can buy a block of public addresses for your own business use or use services like AWS to utilise a cloud providers pool for your applications. A public address ranges from anything in the range, excluding those above, of 1.0.0.0 to 223.255.255.255. 224.X.X.X and above are for multicast addresses and are out of scope for basic understanding of IP.
 
 ### Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) - Layer 4 ###
+
+TCP is a connection-oriented transport mechanism used to guarantee segment delivery across a network. TCP is a very feature-rich protocol, providing features such as:
+* Reliable delivery through Acknowledgement packets
+* Multiplexing via port numbers
+* In-order delivery
+* Flow control through windowing
+
+*What does connection-oriented mean?* This is in relation to the 3-way handshake which establishes a TCP connection before any data is sent, this must succeed before any data is exchanged.
