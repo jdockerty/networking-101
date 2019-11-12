@@ -53,6 +53,7 @@ Private addresses are used as a logical addressing scheme for a private/local ne
 Public ranges are internet routable, you can buy a block of public addresses for your own business use or use services like AWS to utilise a cloud providers pool for your applications. A public address ranges from anything in the range, excluding those above, of 1.0.0.0 to 223.255.255.255. 224.X.X.X and above are for multicast addresses and are out of scope for basic understanding of IP.
 
 > RFC 1918 for private addressing scheme - https://tools.ietf.org/html/rfc1918
+
 > General IP address and subnetting usage - https://support.microsoft.com/en-gb/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics
 
 ### Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) - Layer 4 ###
@@ -72,6 +73,12 @@ Once the handshake has been completed, an end to end connection exists between t
 
 When the data that was needing to be sent has succeeded, the client may send a packet with the FIN (Finish) bit set meaning that the connection will close.
 
+#### Reliable Delivery ####
+
+Acknowledgements are what ensures that delivery is reliable. Acknowledgements are simply just another packet which is sent, practically an empty packet, with the ACK bit set in the TCP header - ACK packets can also *piggyback* off other segments being sent, so that an additional packet is not needed to be sent by itself.
+
+An acknowledgement ensures that the delivery is reliable since the data which is sent is confirmed that it has arrived, if the acknowledgement is not received by the sender then they will know it has not be received (since they expected an acknowledgement for it), so it can be retransmitted.
+
 #### Multiplexing through port numbers ####
 
 A port number is a concept used to allow multiplexing, simply put, this allows a device to differentiate different connection streams to a different services that is coming from the same IP address. Port numbers provide a way to uniquely identify a particular stream and ensure it receives the correct service, e.g. a destination of port 80 to a particular IP would mean it was a webserver, connecting with HTTP to receive some sort of web data.
@@ -83,3 +90,10 @@ A port number is a concept used to allow multiplexing, simply put, this allows a
 >Further reading on TCP - https://tools.ietf.org/html/rfc793`
 
 >Further reading on UDP - https://tools.ietf.org/html/rfc768`
+
+#### In-order Delivery ####
+
+Segments are held in a buffer until they all arrive, at this point they are processed. This ensures they are processed in the order that they were sent.
+
+#### Flow Control ####
+
