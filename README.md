@@ -58,6 +58,8 @@ Public ranges are internet routable, you can buy a block of public addresses for
 
 ### Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) - Layer 4 ###
 
+**TCP**
+
 TCP is a connection-oriented transport mechanism used to guarantee segment delivery across a network. TCP is a very feature-rich protocol, providing features such as:
 * Reliable delivery through Acknowledgement packets
 * Multiplexing via port numbers
@@ -85,16 +87,22 @@ A port number is a concept used to allow multiplexing, simply put, this allows a
 
 *You don't need to memorise port numbers since you can just Google them if you're unsure, although you eventually just pick up the standard ones you hear about a lot and commit those to memory naturally. HTTP = 80, SSH = 22, HTTPS = 443 etc.*
 
-
-
->Further reading on TCP - https://tools.ietf.org/html/rfc793`
-
->Further reading on UDP - https://tools.ietf.org/html/rfc768`
-
 #### In-order Delivery ####
 
 Segments are held in a buffer until they all arrive, at this point they are processed. This ensures they are processed in the order that they were sent.
 
 #### Flow Control ####
 
-This is provided through a windowing mechanism in TCP. The window determines the amount of data that a device is willing to receive before an acknowledgement is needing to be sent. This window size is dynamic, meaning that it can change throughout the duration of the communication.
+This is provided through a windowing mechanism in TCP. The window determines the amount of data that a device is willing to receive before an acknowledgement is needing to be sent. This window size is dynamic, meaning that it can change throughout the duration of the communication. If a host is overwhelmed, it can send a window size value of 0, giving it time to process the data it has received.
+
+**UDP**
+
+Whilst TCP is feature-rich and is connection-oriented, you can think of UDP as the opposite. It is connection-less and does not have many features. It still provides the user of ports numbers, as this is inherent to a layer 4 protocol, but UDP does not have any concept of acknowledgements. 
+
+Instead, it is *best effort delivery*, essentially this is 'I've sent it, good luck.' and there is no way of knowing whether the host on the other end got the data you wanted them to; however, thanks to the scarce amount of features you have with UDP, this means it typically has greater performance as it means there is less overhead on sending data. With TCP, a lot of the features are in-built, you can't just turn them off, so you're forgoing a certain amount of space, 20 bytes, in the packet already just by using TCP.  
+
+Whilst you might thing UDP is useless, this is not the case. UDP is still used extensively in modern applications (VoIP and Video streaming) and has many other protocols built ontop of it or utilise it in various ways, such as DNS and RIP (a simple dynamic routing protocol you'll learn about in networking).
+
+>Further reading on TCP - https://tools.ietf.org/html/rfc793`
+
+>Further reading on UDP - https://tools.ietf.org/html/rfc768`
