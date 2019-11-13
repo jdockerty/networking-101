@@ -99,7 +99,7 @@ This is provided through a windowing mechanism in TCP. The window determines the
 
 Whilst TCP is feature-rich and is connection-oriented, you can think of UDP as the opposite. It is connection-less and does not have many features. It still provides the user of ports numbers, as this is inherent to a layer 4 protocol, but UDP does not have any concept of acknowledgements. 
 
-Instead, it is *best effort delivery*, essentially this is 'I've sent it, good luck.' and there is no way of knowing whether the host on the other end got the data you wanted them to; however, thanks to the scarce amount of features you have with UDP, this means it typically has greater performance as it means there is less overhead on sending data. With TCP, a lot of the features are in-built, you can't just turn them off, so you're forgoing a certain amount of space, 20 bytes, in the packet already just by using TCP.  
+Instead, it is *best effort delivery*, essentially this is **'I've sent it, that's my job done.'** and there is no way of knowing whether the host on the other end got the data you wanted them to; however, thanks to the scarce amount of features you have with UDP, this means it typically has greater performance as it means there is less overhead on sending data. With TCP, a lot of the features are in-built, you can't just turn them off, so you're forgoing a certain amount of space, 20 bytes, in the packet already just by using TCP.  
 
 Whilst you might think UDP is useless, this is not the case. UDP is still used extensively in modern applications and has many other protocols built ontop of it or that utilises it in various ways:
 * Voice over IP (VoIP)
