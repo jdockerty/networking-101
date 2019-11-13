@@ -84,7 +84,7 @@ An acknowledgement ensures that the delivery is reliable since the data which is
 
 #### Multiplexing through port numbers ####
 
-A port number is a concept used to allow multiplexing, simply put, this allows a device to differentiate different connection streams to a different services that is coming from the same IP address. Port numbers provide a way to uniquely identify a particular stream and ensure it receives the correct service, e.g. a destination of port 80 to a particular IP would mean it was a webserver, connecting with HTTP to receive some sort of web data.
+A port number is a concept used to allow multiplexing, simply put, this allows a device to differentiate different connection streams to a different services that is coming from the same IP address. Port numbers provide a way to uniquely identify a particular stream and ensure it receives the correct service, e.g. a destination of port 80 to a particular IP would mean it was a webserver, connecting with HTTP to receive some sort of web data. 
 
 *You don't need to memorise port numbers since you can just Google them if you're unsure, although you eventually just pick up the standard ones you hear about a lot and commit those to memory naturally. HTTP = 80, SSH = 22, HTTPS = 443 etc.*
 
