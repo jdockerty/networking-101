@@ -61,7 +61,7 @@ Public ranges are internet routable, you can buy a block of public addresses for
 
 **TCP**
 
-TCP is a connection-oriented transport mechanism used to guarantee segment delivery across a network. TCP is a very feature-rich protocol, providing features such as:
+TCP is a connection-oriented transport mechanism used to guarantee segment delivery across a network. TCP is a very feature-rich protocol providing:
 * Reliable delivery through Acknowledgement packets
 * Multiplexing via port numbers
 * In-order delivery
