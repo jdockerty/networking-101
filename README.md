@@ -101,7 +101,13 @@ Whilst TCP is feature-rich and is connection-oriented, you can think of UDP as t
 
 Instead, it is *best effort delivery*, essentially this is 'I've sent it, good luck.' and there is no way of knowing whether the host on the other end got the data you wanted them to; however, thanks to the scarce amount of features you have with UDP, this means it typically has greater performance as it means there is less overhead on sending data. With TCP, a lot of the features are in-built, you can't just turn them off, so you're forgoing a certain amount of space, 20 bytes, in the packet already just by using TCP.  
 
-Whilst you might thing UDP is useless, this is not the case. UDP is still used extensively in modern applications (VoIP and Video streaming) and has many other protocols built ontop of it or utilise it in various ways, such as DNS and RIP (a simple dynamic routing protocol you'll learn about in networking).
+Whilst you might think UDP is useless, this is not the case. UDP is still used extensively in modern applications and has many other protocols built ontop of it or that utilises it in various ways:
+* Voice over IP (VoIP)
+* Video streaming services
+* DNS, uses UDP for various functions and TCP for others.
+* Routing Information Protocol (RIP), a dynamic routing protocol you'll learn about in the Networking module.
+
+*Think about why you don't use TCP for voice/video, even though you might initially think you would do so.*
 
 >Further reading on TCP - https://tools.ietf.org/html/rfc793`
 
