@@ -1,4 +1,4 @@
-# Networking For First Years
+# Networking For 1st Year Class
 *Written content for networking class to 1st years.*
 
 ## OSI and TCP/IP Models ##
