@@ -1,4 +1,4 @@
-# Networking Crash Course 
+# Networking For First Years
 *Written content for networking class to 1st years.*
 
 ## OSI and TCP/IP Models ##
