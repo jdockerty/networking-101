@@ -25,6 +25,7 @@ A good thing to remember too, is what type of data is being transmitted or const
 * Layer 1 - Bits on the wire
 
 From these reference models we can delve further into fundamental protocols and understand how they function, given their respective layers.
+## Protocol Examples ##
 
 ### Address Resolution Protocol (ARP) - Layer 2 ###
 
